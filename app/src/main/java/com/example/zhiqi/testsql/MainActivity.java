@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,5 +30,12 @@ public class MainActivity extends AppCompatActivity {
         query.setLastName("lelel");
         userDao.updateUsers(query);
         Log.d("db", "updated" + query);
+        List<User> queryAll = userDao.getAll();
+        Log.d("db", "query all success" + queryAll);
+        userDao.delete(query);
+        Log.d("db", "deleted" + query);
+        List<User> queryAllAgain = userDao.getAll();
+        Log.d("db", "query all success" + queryAllAgain);
+
     }
 }
