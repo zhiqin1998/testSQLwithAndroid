@@ -2,34 +2,40 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "a7130e3de26296d2c54feb823b01d136",
+    "identityHash": "505e61c03293a18543024a775162b817",
     "entities": [
       {
-        "tableName": "user",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uid` TEXT NOT NULL, `first_name` TEXT, `last_name` TEXT, PRIMARY KEY(`uid`))",
+        "tableName": "car",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`model` TEXT NOT NULL, `variation` TEXT NOT NULL, `someSpecs` TEXT, `someOtherSpecs` TEXT, PRIMARY KEY(`variation`))",
         "fields": [
           {
-            "fieldPath": "uid",
-            "columnName": "uid",
+            "fieldPath": "model",
+            "columnName": "model",
             "affinity": "TEXT",
             "notNull": true
           },
           {
-            "fieldPath": "firstName",
-            "columnName": "first_name",
+            "fieldPath": "variation",
+            "columnName": "variation",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "someSpecs",
+            "columnName": "someSpecs",
             "affinity": "TEXT",
             "notNull": false
           },
           {
-            "fieldPath": "lastName",
-            "columnName": "last_name",
+            "fieldPath": "someOtherSpecs",
+            "columnName": "someOtherSpecs",
             "affinity": "TEXT",
             "notNull": false
           }
         ],
         "primaryKey": {
           "columnNames": [
-            "uid"
+            "variation"
           ],
           "autoGenerate": false
         },
@@ -39,7 +45,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"a7130e3de26296d2c54feb823b01d136\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"505e61c03293a18543024a775162b817\")"
     ]
   }
 }
