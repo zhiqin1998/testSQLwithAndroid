@@ -22,6 +22,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions.encoding = 'ISO-8859-1'
     sourceSets {
         androidTest.assets.srcDirs +=
                 files("$projectDir/schemas".toString())
@@ -49,6 +50,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'junit:junit:4.12'
-    implementation 'com.github.daolq3012:AssetSQLiteOpenHelper:1.0'
+    implementation 'com.github.humazed:RoomAsset:1.0.3'
 
 }
