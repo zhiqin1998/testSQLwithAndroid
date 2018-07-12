@@ -11,22 +11,22 @@ import android.arch.persistence.room.Update;
 import java.util.List;
 
 @Dao
-public interface CarDao {
-    @Query("SELECT * FROM car")
-    List<CarWithProperty> getAll();
+public interface EmployeeDao {
+    @Query("SELECT * FROM employee")
+    List<Employee> getAll();
 
-    @Query("SELECT * FROM car WHERE name = :name")
-    List<CarWithProperty> loadByName(String name);
+    @Query("SELECT * FROM employee WHERE id = :id LIMIT 1")
+    Employee loadById(String id);
 
-    @Query("SELECT * FROM car WHERE id = :id LIMIT 1")
-    CarWithProperty loadById(String id);
+    @Query("SELECT * FROM employee WHERE name = :name")
+    List<Employee> loadByName(String name);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertAll(CarWithProperty... cars);
+    void insertAll(Employee... employees);
 
     @Delete
-    void delete(CarWithProperty... cars);
+    void delete(Employee... employees);
 
     @Update
-    void updateUsers(CarWithProperty... cars);
+    void updateUsers(Employee... employees);
 }

@@ -1,6 +1,5 @@
 package com.example.zhiqi.testsql;
 
-import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
@@ -9,61 +8,89 @@ import android.support.annotation.NonNull;
 @Entity(tableName = "car")
 public class CarWithProperty {
     @NonNull
-    private String model;
+    private String name;
 
     @NonNull
     @PrimaryKey
-    private String variation;
+    private String id;
 
-    @ColumnInfo
-    private String someSpecs;
+    @NonNull
+    private String suffix;
 
-    @ColumnInfo
-    private String someOtherSpecs;
+    @NonNull
+    private String chassis;
 
-    public CarWithProperty(String model, String variation, String someSpecs, String someOtherSpecs) {
-        this.model = model;
-        this.variation = variation;
-        this.someSpecs = someSpecs;
-        this.someOtherSpecs = someOtherSpecs;
+    @NonNull
+    private String imgpath;
+
+    @NonNull
+    private String specsCSV;
+
+    public CarWithProperty(@NonNull String name, @NonNull String id, @NonNull String suffix, @NonNull String chassis, @NonNull String imgpath, @NonNull String specsCSV) {
+        this.name = name;
+        this.id = id;
+        this.suffix = suffix;
+        this.chassis = chassis;
+        this.imgpath = imgpath;
+        this.specsCSV = specsCSV;
     }
 
     @Ignore
     public String toString() {
-        return model + "  " + variation + " " + someSpecs + " " + someOtherSpecs;
+        return id + ": " + name + " " + suffix + " " + specsCSV;
     }
 
     @NonNull
-    public String getModel() {
-        return model;
+    public String getName() {
+        return name;
     }
 
-    public void setModel(@NonNull String model) {
-        this.model = model;
+    public void setName(@NonNull String name) {
+        this.name = name;
     }
 
     @NonNull
-    public String getVariation() {
-        return variation;
+    public String getId() {
+        return id;
     }
 
-    public void setVariation(@NonNull String variation) {
-        this.variation = variation;
+    public void setId(@NonNull String id) {
+        this.id = id;
     }
 
-    public String getSomeSpecs() {
-        return someSpecs;
+    @NonNull
+    public String getSuffix() {
+        return suffix;
     }
 
-    public void setSomeSpecs(String someSpecs) {
-        this.someSpecs = someSpecs;
+    public void setSuffix(@NonNull String suffix) {
+        this.suffix = suffix;
     }
 
-    public String getSomeOtherSpecs() {
-        return someOtherSpecs;
+    @NonNull
+    public String getChassis() {
+        return chassis;
     }
 
-    public void setSomeOtherSpecs(String someOtherSpecs) {
-        this.someOtherSpecs = someOtherSpecs;
+    public void setChassis(@NonNull String chassis) {
+        this.chassis = chassis;
+    }
+
+    @NonNull
+    public String getImgpath() {
+        return imgpath;
+    }
+
+    public void setImgpath(@NonNull String imgpath) {
+        this.imgpath = imgpath;
+    }
+
+    @NonNull
+    public String getSpecsCSV() {
+        return specsCSV;
+    }
+
+    public void setSpecsCSV(@NonNull String specsCSV) {
+        this.specsCSV = specsCSV;
     }
 }

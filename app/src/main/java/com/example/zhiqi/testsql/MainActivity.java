@@ -13,6 +13,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     AppDatabase database;
     CarDao carDao;
+    EmployeeDao employeeDao;
+    SpecsDao specsDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,14 +25,27 @@ public class MainActivity extends AppCompatActivity {
                 .openHelperFactory(new AssetSQLiteOpenHelperFactory())
                 .build();
         carDao = database.getCarDao();
+        employeeDao = database.getEmployeeDao();
+        specsDao = database.getSpecsDao();
 
         //showing purpose
-        Log.d("db", "database loaded");
+        Log.d("db ", "Database loaded");
         //testing
+
         List<CarWithProperty> carList = carDao.getAll();
-        Log.d("db", "Retrieved data successfull");
+        Log.d("db", "Retrieved all car successfully");
         for (CarWithProperty car : carList) {
-            Log.d("db", car.toString());
+            Log.d("db ", car.toString());
+        }
+        List<Specs> specsList = specsDao.getAll();
+        Log.d("db", "Retrieved all specs successfully");
+        for (Specs spec : specsList) {
+            Log.d("db ", spec.toString());
+        }
+        List<Employee> employeeList = employeeDao.getAll();
+        Log.d("db", "Retrieved all employees successfully");
+        for (Employee employee : employeeList) {
+            Log.d("db ", employee.toString());
         }
     }
 }
